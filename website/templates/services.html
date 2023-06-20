@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "head_link.html" %}
+</head>
+
+<body>
+
+    <div id="preloader">
+    </div>
+
+{% include "header.html" %}
+
+    <section class="container-fluid light" id="services">
+        <div class="container py-5">
+            <!-- <img src="images/Untitled.png" style="width: 15%; margin-left: -5%;"> -->
+            <div class="row">
+                <div class="col-lg-6" style="padding-top: 10%;">
+                    <h1 class="TextFloatLeft" style="font-size:28px;"><strong>OUR | <span>SERVICES</span></strong></h1>
+                    <p class="TextFloatTop" style="font-size: 18px; padding:5% 0 ;">
+                        We plan and strategize to supply you with the entire scope of our services in order to make your
+                        business a success. We recognise that one method will not work for all companies. We ensure that
+                        our near-perfect combination of services is customized to your company's demands and
+                        developments.
+                    </p>
+
+                    <a href="{% url 'get_quote' %}" class="TextFloatRight btnn">Enquiry Now</a>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <img class="m-auto pt-5 ImageFloatButtom" src="/static/images/banner.png" style="width:80%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="services dark">
+        <h2 class="heading">OUR <span>BEST SERVICES</span></h2>
+
+        <div class="services-container">
+            {% for i in data.services %}
+            <div class="services-box">
+                <i class="{{ i.icon }}"></i>
+                <h3>{{ i.title }}</h3>
+                <p>{{ i.discription }}</p>
+                <a href="{% url 'read_more' i.id %}" class="btnn">Read More</a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+      {% include "footer.html" %}
+
+
+</body>
+
+</html>

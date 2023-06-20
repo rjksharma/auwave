@@ -1,0 +1,15 @@
+<!--header design-->
+
+    <div class="header">
+        <a href="{% url 'home' %}"><img class="header_logo" src="/static/images/Untitled.png" alt="This is logo"></a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <!-- <a href="#careers">Careers</a> -->
+            <a href="{% url 'services' %}">Services</a>
+            <a href="{% url 'portfolio' %}">Porfolio</a>
+            <a href="{% url 'contact' %}">Contact Us</a>
+        </nav>
+        <a href="{% url 'get_quote' %}"><img class="quote ImageFloatTop" src="/static/images/get_quote.png"></a>
+    </div>

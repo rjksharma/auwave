@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "head_link.html" %}
+</head>
+
+<body>
+
+    <div id="preloader">
+    </div>
+
+    {% include "header.html" %}
+    {% for i in data.auwavedetails %}
+    <section id="contact" class="container-fluid light">
+        <div class="container py-5">
+            <!-- <img src="images/Untitled.png" style="width: 15%; margin-left: -5%;"> -->
+            <div class="row">
+                <div class="col-lg-6 TextFloatTop" style="padding-top: 10%;">
+                    <h1><strong>How you can connect us <span>24X7</span></strong></h1>
+                    <p style="font-size: 18px; padding:5% 0 ;">
+                        {{ i.discription}}
+                    </p>
+                    <a href="https://wa.me/{{ i.number }}" target="_blank" class="ButtonFloatRight btnn me-3">Chat
+                        Now</a>
+                    <a href="" target="_blank" class="btnn">Mail Now</a>
+
+                </div>
+                <div class="col-lg-6 ImageFloatButtom">
+                    <div class="row">
+                        <img class="m-auto pt-5" src="/static/images/contact.png" style="width:80%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact dark">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2 class="TextFloatTop text-color text-center py-3" style="font-size: 30px;font-weight: 600;">
+                    <span>Contact </span>Us!
+                </h2>
+                <!-- <p class="pb-5" style="font-size: 16px;">Magnam dolores commodi suscipit. Necessitatibus eius
+                    consequatur ex aliquid
+                    fuga eum quidem. Sit sint
+                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                    fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+            </div>
+
+            <div class="row">
+
+                <div class="TextFloatLeft col-lg-5 d-flex align-items-stretch">
+                    <div class="info">
+                        <div class="address">
+                            <i class='bx bxs-location-plus'></i>
+                            <h4 class="text-color">Location:</h4>
+                            <p>{{ i.address }}</p>
+                        </div>
+
+                        <div class="email">
+                            <i class='bx bxl-gmail'></i>
+                            <h4>Email:</h4>
+                            <p>{{ i.email }}</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="bx bxs-phone-call"></i>
+
+                            <h4>Call:</h4>
+                            <p>+{{ i.number }}</p>
+                        </div>
+
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1455.8381512239837!2d77.62650286449356!3d13.059729560423646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae190cc67ad11f%3A0x258a859aacd20f5c!2sManyata%20Nest!5e0!3m2!1sen!2sin!4v1686993823031!5m2!1sen!2sin"
+                            frameborder="0" style="border-radius:5px; width: 100%; height: 290px;"
+                            allowfullscreen></iframe>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch p-">
+                    <form action="{% url 'user_contact' %}" method="POST" role="form" class="php-email-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="FormFloatLeft form-group col-md-6">
+                                <label>Full Name<red>*</red></label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+                            <div class="FormFloatRight form-group col-md-6">
+                                <label>Email Address<red>*</red></label>
+                                <input type="email" class="form-control" name="email" id="email" required>
+                            </div>
+                            <div class="FormFloatLeft form-group col-md-6">
+                                <label>Phone no<red>*</red></label>
+                                <input type="text" class="form-control" name="number" id="phone" required>
+                            </div>
+
+                            <div class="FormFloatRight form-group col-md-6">
+                                <label>Project Category<red>*</red></label>
+                                <select name="subject" class="form-control"
+                                    style="padding: 12px 0px; border-radius: 7px; font-size:12px;">
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="App Development">App Development</option>
+                                    <option value="Game Development">Game Development</option>
+                                    <option value="Block Chain Development">Block Chain Development</option>
+                                    <option value="Smart Contact">Smart Contact</option>
+                                    <option value="NFT">NFT</option>
+                                    <option value="Ecommerce Solution">Ecommerce Solution</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="FormFloatButtom form-group">
+                            <label>Message<red>*</red></label>
+                            <textarea class="form-control" name="message" rows="10" required></textarea>
+                        </div>
+
+                        <button class="btnn FormFloatTop" type="submit">Send Message</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    {% include "footer.html" %}
+    {% endfor %}
+    <!-- ------scroll reveal----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- --------typed js------- -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!--custom js-->
+    <script src="/static/js/script.js"></script>
+    <script>
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function () {
+            loader.style.display = "none"
+        })
+    </script>
+</body>
+
+</html>

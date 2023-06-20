@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "head_link.html" %}
+</head>
+
+<body>
+
+    <div id="preloader">
+    </div>
+
+{% include "header.html" %}
+{% for i in data.services %}
+    <div class="container-fluid light" style="margin-top: 82px;">
+        <h1 class="text-center p-5 list-unstyled TextFloatTop"><span style="text-transform:uppercase;">{{ i.title }}</span></h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 py-4">
+                    <h1 class="TextFloatRight">
+                        <span>{{ i.title }} </span>| Service
+                    </h1>
+                    <p class="TextFloatLeft py-5" style="font-size: 18px;">{{ i.discription }}</p>
+                    <a href="" class="TextFloatLeft btnn me-3">Enquiry Now</a>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <img class="ImageFloatButtom m-auto" src="/static/images/web_development-removebg-preview.png"
+                            style="width: 85%; ">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid dark">
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 ">
+                    <div class="row">
+                        <img class="ImageFloatLeft m-auto" src="/static/images/web-development-programming-4315061-3610795.png"
+                            style="width: 85%; ">
+
+                    </div>
+                </div>
+                <div class="col-lg-6 py-4">
+
+                    <p class="py-5 TextFloatRight" style="font-size: 18px;">We are a one-stop-shop for all website
+                        development
+                        services. By using cutting-edge technologies
+                        our in-house team of
+                        developers delivers intuitive and highly agile websites. By keeping your vision in focus we
+                        bring out a digital
+                        transformation for your business that helps you further broaden your growth. We cover all
+                        types
+                        of web development
+                        solutions from creating plain text pages to complex web-based applications, social network
+                        applications, and electronic
+                        business applications.transformation for your business that helps you further broaden your
+                        growth. We cover all types
+                        of web development
+                        solutions from creating plain text pages to complex web-based applications, social network
+                        applications, and electronic
+                        business applications.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid light">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 py-4">
+
+                    <p class="py-5 TextFloatLeft " style="font-size: 18px;">We are a one-stop-shop for all website
+                        development
+                        services. By using cutting-edge technologies
+                        our in-house team of
+                        developers delivers intuitive and highly agile websites. By keeping your vision in focus we
+                        bring out a digital
+                        transformation for your business that helps you further broaden your growth. We cover all types
+                        of web development
+                        solutions from creating plain text pages to complex web-based applications, social network
+                        applications, and electronic
+                        business applications.solutions from creating plain text pages to complex web-based
+                        applications, social network
+                        applications, and electronic
+                        business applications.</p>
+                    <button class="TextFloatLeft btnn me-3">Enquiry Now</button>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <img class="ImageFloatRight m-auto" src="/static/images/marketing-removebg-preview.png"
+                            style="width: 95%; ">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       {% include "footer.html" %}
+{% endfor %}
+
+    <!-- ------scroll reveal----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- --------typed js------- -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!--custom js-->
+    <script src="js/script.js"></script>
+    <script>
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function () {
+            loader.style.display = "none";
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "head_link.html" %}
+</head>
+
+<body>
+    <div id="preloader">
+    </div>
+
+    {% include "header.html" %}
+
+    <section class="contact dark">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2 class="TextFloatTop text-color text-center pt-3" style="font-size: 30px;font-weight: 600;">
+                    Get a <span>free Quote!</span>
+                </h2>
+                <h4 class="TextFloatButtom text-center ">Fill in the below form !!! It becomes amazing when we get
+                    together.</h4>
+                <!-- <p class="pb-5" style="font-size: 16px;">Magnam dolores commodi suscipit. Necessitatibus eius
+                        consequatur ex aliquid
+                        fuga eum quidem. Sit sint
+                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+                        fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-7 m-auto mt-5 mt-lg-0 d-flex align-items-stretch p-0">
+                    <form action="{% url 'user_contact' %}" method="POST" role="form" class="php-email-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="FormFloatLeft form-group col-md-6">
+                                <label>Full Name<red>*</red></label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+                            <div class="FormFloatRight form-group col-md-6">
+                                <label>Email Address<red>*</red></label>
+                                <input type="email" class="form-control" name="email" id="email" required>
+                            </div>
+                            <div class="FormFloatLeft form-group col-md-6">
+                                <label>Phone no<red>*</red></label>
+                                <input type="text" class="form-control" name="number" id="phone" required>
+                            </div>
+
+                            <div class="FormFloatRight form-group col-md-6">
+                                <label>Project Category<red>*</red></label>
+                                <select name="subject" class="form-control"
+                                    style="padding: 12px 0px; border-radius: 7px; font-size:12px;">
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="App Development">App Development</option>
+                                    <option value="Game Development">Game Development</option>
+                                    <option value="Block Chain Development">Block Chain Development</option>
+                                    <option value="Smart Contact">Smart Contact</option>
+                                    <option value="NFT">NFT</option>
+                                    <option value="Ecommerce Solution">Ecommerce Solution</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="None of This">None of This</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="FormFloatButtom form-group">
+                            <label>Message<red>*</red></label>
+                            <textarea class="form-control" name="message" rows="10" required></textarea>
+                        </div>
+
+                        <button class="btnn FormFloatTop" type="submit">Get Free Quote</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

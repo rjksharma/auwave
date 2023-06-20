@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "head_link.html" %}
+</head>
+
+<body>
+
+    <div id="preloader">
+    </div>
+
+{% include "header.html" %}
+
+  <!-- -------portfolio section design--------- -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span>Project</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="/static/images/2.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/1.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/4.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+
+            <div class="portfolio-box">
+                <img src="/static/images/3.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/2.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/1.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- -------------Owl_caousel--------------- -->
+        <div class="brand-carousel section-padding owl-carousel">
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/QxPJ8hXy/brand-1.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/pdMQjC5Q/brand-2.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/d14GzKHn/brand-4.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/x8ZM13Sz/brand-5.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+            </div>
+        </div>
+      </section>
+   <!-- ----services section design----- -->
+
+     <section class="services pb-5 dark" id="services">
+        <h2 class="heading">OUR |<span> SERVICES</span></h2>
+
+        <div class="services-container py-5">
+            {% for i in data.services %}
+            <div class="services-box">
+                <i class="{{ i.icon }}"></i>
+                <h3>{{ i.title }}</h3>
+                <p>{{ i.discription }}</p>
+                <a href="{% url 'read_more' i.id %}" class="btnn">Read More</a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% include "footer.html" %}
+</body>
+</html>

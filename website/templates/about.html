@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "head_link.html" %}
+      <title>{{data.title}}</title>
+
+</head>
+
+<body>
+
+    <div id="preloader">
+    </div>
+
+{% include "header.html" %}
+
+    <section class="container-fluid light">
+        <div class="container py-5">
+            <img class="ImageFloatRight" src="/static/images/Untitled.png" style="width: 15%; margin-left: -5%;">
+            <div class="row">
+                <div class="col-lg-6 TextFloatButtom" style="padding-top: 3%;">
+                    {% for i in data.auwavedetails %}
+                    <h1><span>Know About Us</span></h1>
+                    <p style="font-size: 18px; padding:5% 0 ;">
+                       {{ i.discription }}
+                    </p>
+                    <a href="https://wa.me/{{ i.number }}" class="btnn me-4 ">Call Now</a>
+                    <a href="{{ i.email }}" class="btnn">Mail Now</a>
+{% endfor %}
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <img class="m-auto ImageFloatTop" src="/static/images/about1.png" style="width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="container-fluid dark py-5">
+        <div class="container py-5">
+            <div class="row">
+
+                <h1 style="scale: 1.5;" class="pb-4 text-center TextFloatTop"><span>auwave</span> | Journy</h1>
+
+                <div class="col-lg-6 py-">
+
+                    <img class="pt-4 ImageFloatLeft" src="/static/images/about.png" style="width:80%;">
+
+                </div>
+                <div class="col-lg-6 py-5 TextFloatRight">
+
+                    <h1 class="py-5 text-center">More <span>About Us</span></h1>
+                    <p style="font-size: 18px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa
+                        adipisci deleniti eos
+                        repellat mollitia, qui similique, odio ducimus repellendus et modi laborum. Autem ipsam
+                        laborum
+                        asperiores, maiores ad veniam numquam cum similique optio molestiae, voluptas, ex quam
+                        facere
+                        debitis!</p>
+                    <button class="btnn m-auto my-4">Read More</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="light">
+        <div class="container light">
+            <h1 class="section-header TextFloatTop" >Our <span>Teams</span> </h1>
+            <div class="testimonials">
+
+                <div id="carouselExampleControls" class="carousel slide ImageFloatButtom" data-bs-ride="carousel">
+                    <div class="carousel-inner ">
+                        {% for i in data.ourteams %}
+                        <div class="carousel-item active">
+                            <div class="single-item dark"
+                                style="box-shadow:0 0 10px black; border-left: 15px solid #14c2bc">
+                                <div class="row dark" style="border-radius: 10px; ">
+                                    <div class="col-md-5 dark">
+                                        <div class="profile">
+                                            <div class="img-area">
+                                                <img src="/media/{{ i. }}" alt="">
+                                            </div>
+                                            <div class="bio">
+                                                <h2 class="text-color"><span>{{ i.name }}</span></h2>
+                                                <h4 class="text-color">{{ i.position }}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="content">
+                                            <p class="text-color"><span><i class="fa fa-quote-left"></i></span>{{ i.discription }}</p>
+                                            <div class="social-media">
+                                                <a href="{{ i.facebook }}" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                                <a href="{{ i.twitter }}" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                                <a href="{{ i.instagram }}" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                                                <a href="{{ i.linkedin }}" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                        
+                        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                            <span class="btnn" aria-hidden="true"><</span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="btnn" aria-hidden="true">></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                
+            </div>
+            </div>
+        
+    </section>
+    {% include "footer.html" %}
+    
+</body>
+
+</html>

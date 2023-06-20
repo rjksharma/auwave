@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--box icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--custon-->
+    <link rel="stylesheet" href="/static/css/style.css">
+      <title>{{data.title}}</title>
+   
+    <!-- <link rel="stylesheet" href="/static/css/bootstrap.css"> -->
+    <!-- ----favicon------- -->
+    <link rel="shortcut icon" href="/static/images/favicon1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- <script src="custom.js"></script> -->
+  
+</head>
+
+<body>
+      
+    <div id="preloader">
+    </div>
+    {% include "header.html" %}
+    <!--home section desgin-->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Welcome to,</h3>
+            <h1>auwave</h1>
+            <h3>Services | <span class="multiple-text"> </span></h3>
+            <p>We are a full-fledged IT Services Company invading new possibilities and reshaping the technology-driven generation.</p>
+            {% for i in data.auwavedetails %}
+            <div class="social-media">
+                <a href="{{ i.facebook }}" target="_blank" ><i class='bx bxl-facebook'></i></a>
+                <a href="{{ i.twitter }}" target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="{{ i.instagram }}" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="{{ i.linkedin }}" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <a href="https://wa.me/{{ i.number }}" target="_blank" class="btnn">Contact Us</a>
+            {% endfor %}
+        </div>
+
+        <div class="home-img">
+            <img src="/static/images/banner.png" alt="">
+
+        </div>
+
+        <!-- -------------wave------------------ -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            width="100%" height="100%" viewBox="0 0 1600 790" preserveAspectRatio="xMidYMax slice">
+            <defs>
+                <linearGradient id="bg">
+                    <stop offset="0%" style="stop-color:rgba(130, 201, 249, 0.06)"></stop>
+                    <stop offset="50%" style="stop-color:#44a3a0"></stop>
+                    <stop offset="100%" style="stop-color:#7cebae"></stop>
+                </linearGradient>
+                <path id="wave" fill="url(#bg)"
+                    d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+        	s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+            </defs>
+            <g>
+                <use xlink:href='#wave' opacity=".3">
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
+                        calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                </use>
+                <use xlink:href='#wave' opacity=".6">
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s"
+                        calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                </use>
+                <use xlink:href='#wave' opacty=".9">
+                    <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s"
+                        calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1"
+                        keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+                </use>
+            </g>
+        </svg>
+
+    </section>
+
+    <!--about section desgin-->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="/static/images/banner1.png" alt="">
+        </div>
+
+        <div class="about-content">
+            <h2 class="heading">About Us</h2>
+            <h3><span>auwave</span> | The Best It Solution Provider</h3>
+            <p>We are a passionate and dedicated team of specialists who take up each project as a challenge, delivering top-notch and timely results.
+
+Our wide-ranging IT Solutions services like App Development, Web Development, Digital Marketing ,Lead Generation, Social Media Marketing, Blockchain Development, UI/UX, NFT, Game Development, Corporate Branding and Ecommerce Solution help you adapt, compete, and overcome all your business challenges.
+            </p>
+            <a href="#" class="btnn">Read More</a>
+        </div>
+
+    </section>
+    <!-- ----services section design----- -->
+
+     <section class="services pb-5" id="services">
+        <h2 class="heading">OUR |<span> SERVICES</span></h2>
+
+        <div class="services-container py-5">
+            {% for i in data.services %}
+            <div class="services-box">
+                <i class="{{ i.icon }}"></i>
+                <h3>{{ i.title }}</h3>
+                <p>{{ i.discription }}</p>
+                <a href="{% url 'read_more' i.id %}" class="btnn">Read More</a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <!-- -------portfolio section design--------- -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Latest <span>Project</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="/static/images/2.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/1.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/4.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+
+            <div class="portfolio-box">
+                <img src="/static/images/3.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/2.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+
+            <div class="portfolio-box">
+                <img src="/static/images/1.jpg" alt="">
+                <div class="portfolio-layer">
+                    <h4>Web Design</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime vel optio, laudantium sit
+                        doloremque omnis.</p>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- -------------Owl_caousel--------------- -->
+        <div class="brand-carousel section-padding owl-carousel">
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/QxPJ8hXy/brand-1.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/pdMQjC5Q/brand-2.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/d14GzKHn/brand-4.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/x8ZM13Sz/brand-5.png" alt="">
+            </div>
+            <div class="single-logo">
+                <img src="https://i.postimg.cc/B6qxYvgX/brand-3.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- ----------contact section design-------- -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+
+        <form action="{% url 'user_contact' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-box">
+                <input class="FormFloatLeft" type="text" name="name" placeholder="Full Name*" required>
+                <input class="FormFloatRight" type="email" name="email" placeholder="Email Address*" required>
+
+            </div>
+            <div class="input-box">
+                <input class="FormFloatLeft" type="number" name="number" placeholder="Mobile Number*" required>
+                <input class="FormFloatRight" type="text" name="subject" placeholder="Subject*" required>
+
+                <!-- <select class="form-control" style="padding: 16px 26% 16px 0px; border-radius: 7px; font-size:12px;">
+                    <option value="1">Web Development</option>
+                    <option value="2">App Development</option>
+                    <option value="3">Game Development</option>
+                    <option value="3">Block Chain Development</option>
+                    <option value="3">Smart Contact</option>
+                    <option value="3">NFT</option>
+                    <option value="3">Ecommerce Solution</option>
+                    <option value="3">Digital Marketing</option>
+                </select> -->
+
+            </div>
+            <textarea class="FormFloatButtom" name="message" id="" col="30" rows="10" placeholder="Your Message*" required></textarea>
+            <button class="btnn ButtunFloatTop" type="submit">Send Message</button>
+        </form>
+    </section>
+    
+
+    {% include "footer.html" %}
+
+
+</html>
